@@ -2,17 +2,20 @@ import React, { useState } from "react";
 import { UseTodos } from "../store/TodosData";
 
 const AddTodoList = () => {
-    const [todo, setTodo] = useState("");
-    const {handleAddTodo} =UseTodos();
-    const handleFormSumit = (e) =>{
-        e.preventDefault();
-        handleAddTodo(todo);
-        setTodo("");
-    }
+  const [todo, setTodo] = useState("");
+  const { handleAddTodo } = UseTodos();
+  const handleFormSumit = (e) => {
+    e.preventDefault();
+    handleAddTodo(todo);
+    setTodo("");
+  };
   return (
     <form onSubmit={handleFormSumit} className=" flex gap-3 py-10 px-10">
       <input
-        type="text" placeholder=" Add a items" onChange={(e)=> setTodo(e.target.value)} value={todo}
+        type="text"
+        placeholder=" Add a items"
+        onChange={(e) => setTodo(e.target.value)}
+        value={todo}
         className=" border-[1px] border-[#cccccc] w-full font-medium text-[16px] px-3 py-1 rounded-md"
       />
       <button

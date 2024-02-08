@@ -1,15 +1,23 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { TodoContext } from "../context/TodoContext";
 
 export const TodosProvider = ({ children }) => {
   const [todos, setTodos] = useState([]);
 
+  useEffect(()=>{
+    const storedTodos = JSON.parse(localStorage.getItem("items"));
+    if(storedTodos){
+      setTodos(storedTodos);
+    }
+  },[]);
+ 
   const handleAddTodo = (task) => {
     setTodos((prev) => {
-      const newtodos = [
+      const newTodos = [
         { id: Math.random().toString(), task: task, completed: false },...prev
       ];
-      return newtodos;
+      localStorage.setItem("items", JSON.stringify(newTodos))
+      return newTodos;
     })
   };
 
@@ -21,6 +29,7 @@ export const TodosProvider = ({ children }) => {
             }
             return value;
         })
+        localStorage.setItem("items", JSON.stringify(newTodos))
         return newTodos
     })
 }
@@ -29,6 +38,7 @@ export const TodosProvider = ({ children }) => {
 const handleDelete = (id) =>{
   setTodos((prev)=>{
     const newTodos = prev.filter((value)=> value.id !=id);
+    localStorage.setItem("items", JSON.stringify(newTodos))
     return newTodos;
   })
 }
