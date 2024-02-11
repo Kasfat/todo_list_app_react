@@ -1,8 +1,14 @@
-# React + Vite
+# Project Name: Todo List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Here are 3 menu :
+1. All
+2. Active(Incompleted)
+3. Complted
 
-Currently, two official plugins are available:
+1. All : This menu show all type of item. Completed and incomplted both are show this menu.  Here also user can make it mark/unmark and delete.
+2. Active: Here show only active(incompleted) task. That's means only this task listing but not completed.
+Here all items are unmark. User can mark it if user want. If user make items mark then marked items go to Completed menu section.
+3. Completed : This section Only show Completed task.Here all tasks are marked but user can make it unmark then this task go to Active(incompleted) task. Also this menu section all completed task has a delete button. So that user can delete permanently selected task. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+CSS: For this project i used Tailwind Css framework.
