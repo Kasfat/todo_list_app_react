@@ -6,7 +6,7 @@ const NavBar = () => {
   const [searchParams] = useSearchParams();
   const searchParamsData = searchParams.get("items");
   return (
-    <nav className=' flex justify-between items-center px-20 border-b-[1px] border-[#ccc] mb-4'>
+    <nav className=' flex justify-between items-center px-5 md:px-10 lg:px-20 border-b-[1px] border-[#ccc] mb-4'>
         <Link to="/" className={searchParamsData === ""? "active":""}>All</Link>
         <Link to="/?items=active" className={searchParamsData === 'active' ? "active":""}>Active</Link>
         <Link to="/?items=completed" className={searchParamsData === 'completed' ? "active":""}>Completed</Link>

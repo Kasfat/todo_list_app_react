@@ -3,14 +3,14 @@ import { UseTodos } from "../store/TodosData";
 
 const AddTodoList = () => {
   const [todo, setTodo] = useState("");
-  const { handleAddTodo } = UseTodos();
+  const { handleAddTodo} = UseTodos();
   const handleFormSumit = (e) => {
     e.preventDefault();
     handleAddTodo(todo);
     setTodo("");
   };
   return (
-    <form onSubmit={handleFormSumit} className=" flex gap-3 py-10 px-10">
+    <form onSubmit={handleFormSumit} className=" flex gap-3 py-10 px-2 md:px-7 lg:px10 ">
       <input
         type="text"
         placeholder=" Add a items"

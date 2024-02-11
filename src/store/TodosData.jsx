@@ -11,35 +11,38 @@ export const TodosProvider = ({ children }) => {
     }
   },[]);
  
+
+  //add items section
   const handleAddTodo = (task) => {
     setTodos((prev) => {
-      const newTodos = [
-        { id: Math.random().toString(), task: task, completed: false },...prev
+      const newItems = [
+        { id: Math.random().toString(), task: task, completed: false},...prev
       ];
-      localStorage.setItem("items", JSON.stringify(newTodos))
-      return newTodos;
+      localStorage.setItem("items", JSON.stringify(newItems))
+      return newItems;
     })
   };
 
+  // delete button toggle click on mark
   const toggleTodoAsComplete = (id)=>{
     setTodos((prev)=>{
-        const newTodos = prev.map((value)=>{
+        const newItems = prev.map((value)=>{
             if(value.id === id){
                 return{...value, completed:!value.completed}
             }
             return value;
         })
-        localStorage.setItem("items", JSON.stringify(newTodos))
-        return newTodos
+        localStorage.setItem("items", JSON.stringify(newItems))
+        return newItems
     })
 }
 
 // delete list item
 const handleDelete = (id) =>{
   setTodos((prev)=>{
-    const newTodos = prev.filter((value)=> value.id !=id);
-    localStorage.setItem("items", JSON.stringify(newTodos))
-    return newTodos;
+    const newItems = prev.filter((value)=> value.id !=id);
+    localStorage.setItem("items", JSON.stringify(newItems))
+    return newItems;
   })
 }
 
